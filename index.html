@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
+    <!-- 👇 css code file 👇 -->
+    <link rel="stylesheet" href="./src/style/global.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.min.js"></script>
+</head>
+<body>
+    <div id="outer-wrapper" class="outer-wrapper">
+        <div class="header-mobile">
+            <div class="logo-mobile">
+                <img src="./src/assets/images/logo-removebg-preview.png" alt="logo mobile">
+            </div>
+            <div id="button-mobile">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+        <header id="header">
+        <div class="logo">
+            <img src="./src/assets/images/logo-removebg-preview.png" alt="logo">
+        </div>
+        <div class="navigation">
+            <nav id="navbar" class="navibar">
+                <span class="sub">Manage</span>
+                <a href="./index.html" class="active"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a>
+                <a href="./pages/transaction.html"><i class="fa fa-money" aria-hidden="true"></i><span>Transaction</span></a>
+                <a href="./pages/project.html"><i class="fa fa-tasks" aria-hidden="true"></i><span>Project</span></a>
+                <a href="./pages/items.html"><i class="fa fa-th-list" aria-hidden="true"></i><span>Product</span></a>
+                <a href="./pages/customer.html"><i class="fa fa-users" aria-hidden="true"></i><span>Customer</span></a>
+                <span class="sub">User</span>
+                <a href="#notif"><i class="fa fa-bell-o" aria-hidden="true"></i><span>Notification</span></a>
+                <a href="#account"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Profile</span></a>
+            </nav>
+            <button id="logout" aria-label="logout" type="button">
+                Logout
+            </button>
+        </div>
+        </header>
+        <main>
+        <div class="heading no-mobile">
+            <h1>Main Content</h1>
+            <div class="right">
+                <a href="http://">Add Transaksi</a>
+                <a href="http://">Logout</a>
+            </div>
+        </div>
+        <div class="balance-info">
+            <div class="balance-grapic bixbox">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="balance-total bixbox">
+                <div class="heading">
+                    <h2>Balance Status</h2>
+                    <span>April</span>
+                </div>
+                <div class="status">
+                    Rp. 17.000.000
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <div class="status-mutasi">
+                    <div class="masuk">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        <span>Total Pemasukan</span>
+                        <span class="jumlah">Rp. 5.000.000</span>
+                    </div>
+                    <div class="keluar">
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        <span>Total Pengeluaran</span>
+                        <span class="jumlah">Rp. 4.600.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="transaksi bixbox">
+            <div class="heading">
+                <h2>Riwayat Transaksi</h2>
+                <div class="tabs">
+                    <span id="link">Week</span>
+                    <span id="link">Month</span>
+                    <span id="link">Year</span>
+                </div>
+            </div>
+            <div class="transaksi-head">
+                <span>Date and Time</span>
+                <span class="cat">Category</span>
+                <span>Amount $</span>
+            </div>
+            <div class="container">
+                <div class="transaksi-detail">
+                    <span class="date">03-06-2023, 09:15</span>
+                    <span class="category jual">Jual Barang</span>
+                    <span class="amount in">+5000000</span>
+                </div>
+                <div class="transaksi-detail">
+                    <span class="date">02-06-2023, 15:45</span>
+                    <span class="category beli">Beli Barang</span>
+                    <span class="amount out">-10000000</span>
+                </div>
+                <div class="transaksi-detail">
+                    <span class="date">01-06-2023, 15:30</span>
+                    <span class="category">Service</span>
+                    <span class="amount out">-250000</span>
+                </div>
+            </div>
+        </div>
+        </main>
+        <footer>
+            <span>Copyright © 2022 Vindhy Cell. All Rights Reserved</span>
+        </footer>
+    </div>
+    
+    <!-- 👇 javascript code file 👇 -->
+    <script src="./src/js/index.js"></script>
+    <script src="./src/js/chart.js"></script>
+</body>
+</html>
