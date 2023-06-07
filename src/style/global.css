@@ -846,7 +846,7 @@ footer {
 
 @media screen and (max-width: 600px) {
     .balance-grapic {
-        /*display: none;*/
+        display: none;
     }.t-left {
         width: 40%;
     }.t-right {
