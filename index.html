@@ -34,7 +34,6 @@
                 <a href="./pages/transaction.html"><i class="fa fa-money" aria-hidden="true"></i><span>Transaction</span></a>
                 <a href="./pages/project.html"><i class="fa fa-tasks" aria-hidden="true"></i><span>Project</span></a>
                 <a href="./pages/items.html"><i class="fa fa-th-list" aria-hidden="true"></i><span>Product</span></a>
-                <a href="./pages/customer.html"><i class="fa fa-users" aria-hidden="true"></i><span>Customer</span></a>
                 <span class="sub">User</span>
                 <a href="./pages/profile.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Profile</span></a>
             </nav>
@@ -47,7 +46,7 @@
         <div class="heading no-mobile">
             <h1>Main Content</h1>
             <div class="right">
-                <a href="http://">Add Transaksi</a>
+                <a href="./pages/addtransaksi.html">Add Transaksi</a>
                 <a href="http://">Logout</a>
             </div>
         </div>
@@ -82,30 +81,34 @@
             <div class="heading">
                 <h2>Riwayat Transaksi</h2>
                 <div class="tabs">
-                    <span id="link">Week</span>
-                    <span id="link">Month</span>
-                    <span id="link">Year</span>
+                    <span id="link">Maret 2023</span>
+                    <span id="link" class="active">April 2023</span>
+                    <span id="link">Mei 2023</span>
                 </div>
             </div>
             <div class="transaksi-head">
-                <span>Date and Time</span>
+                <span class="date">Date and Time</span>
                 <span class="cat">Category</span>
-                <span>Amount $</span>
+                <span class="bayar">Pembayaran</span>
+                <span class="modal">Pengeluaran</span>
             </div>
             <div class="container">
                 <div class="transaksi-detail">
                     <span class="date">03-06-2023, 09:15</span>
                     <span class="category jual">Jual Barang</span>
                     <span class="amount in">+5000000</span>
+                    <span class="amount out">-5000000</span>
                 </div>
                 <div class="transaksi-detail">
                     <span class="date">02-06-2023, 15:45</span>
                     <span class="category beli">Beli Barang</span>
+                    <span class="amount in">+5000000</span>
                     <span class="amount out">-10000000</span>
                 </div>
                 <div class="transaksi-detail">
                     <span class="date">01-06-2023, 15:30</span>
                     <span class="category">Service</span>
+                    <span class="amount in">+5000000</span>
                     <span class="amount out">-250000</span>
                 </div>
             </div>
@@ -114,6 +117,7 @@
         <footer>
             <span>Copyright © 2022 Vindhy Cell. All Rights Reserved</span>
         </footer>
+        <a href="./pages/addtransaksi.html" class="add-mobile"><i class="fa fa-plus" aria-hidden="true"></i></a>
     </div>
     
     <!-- 👇 javascript code file 👇 -->

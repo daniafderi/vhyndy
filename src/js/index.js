@@ -24,3 +24,13 @@ var getHeightWrapper = wrapper.scrollHeight;
 if(getHeightWrapper >= outerHeight) {
     wrapper.classList.add("relative");
 }
+
+// Proggres bar
+var s = document.getElementById("prog");
+var b = document.getElementById("getValue");
+
+var getValue = () => {
+    b.innerHTML = s.value + "%";
+}
+
+getValue();

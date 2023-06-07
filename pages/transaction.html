@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Customer</title>
+    <title>Transaction</title>
     <!-- 👇 css code file 👇 -->
     <link rel="stylesheet" href="../src/style/global.css"/>
 </head>
@@ -30,7 +30,6 @@
                 <a href="./transaction.html"  class="active"><i class="fa fa-money" aria-hidden="true"></i><span>Transaction</span></a>
                 <a href="./project.html"><i class="fa fa-tasks" aria-hidden="true"></i><span>Project</span></a>
                 <a href="./items.html"><i class="fa fa-th-list" aria-hidden="true"></i><span>Product</span></a>
-                <a href="./customer.html"><i class="fa fa-users" aria-hidden="true"></i><span>Customer</span></a>
                 <span class="sub">User</span>
                 <a href="./profile.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Profile</span></a>
             </nav>
@@ -45,65 +44,66 @@
         <div class="heading no-mobile">
             <h1>Transaction</h1>
             <div class="right">
-                <a href="http://">Add Transaksi</a>
+                <a href="./addtransaksi.html">Add Transaksi</a>
                 <a href="http://">Logout</a>
             </div>
         </div>
         <div class="transaksi-container">
-            <div class="transaksi-list">
+            <a href="./edittransaksi.html" class="transaksi-list">
                 <div class="t-left">
                     <span class="t-name">Service AC</span>
                     <span class="t-date">01-06-2023, 10:30</span>
                 </div>
                 <div class="t-center">
                     <div class="t-img">
-                        <img src="../src/assets/images/anton.webp" alt="profile">
+                        <img src="../src/assets/images/file.JPG" alt="profile">
                     </div>
-                    <span>Admin</span>
+                    <span>Hadhy Purwanto</span>
                 </div>
                 <div class="t-right">
-                    <span class="t-amount out">- 250000</span>
-                    <span class="t-id">1</span>
+                    <span class="t-amount in">+ 250000</span>
+                    <span class="t-amount out">- 50000</span>
                 </div>
-            </div>
-            <div class="transaksi-list">
+            </a>
+            <a href="./edittransaksi.html" class="transaksi-list">
                 <div class="t-left">
                     <span class="t-name">Beli Laptop</span>
                     <span class="t-date">02-06-2023, 15:45</span>
                 </div>
                 <div class="t-center">
                     <div class="t-img">
-                        <img src="../src/assets/images/anton.webp" alt="profile">
+                        <img src="../src/assets/images/file.JPG" alt="profile">
                     </div>
-                    <span>Admin</span>
+                    <span>Hadhy Purwanto</span>
                 </div>
                 <div class="t-right">
+                    <span class="t-amount in">+ 0</span>
                     <span class="t-amount out">- 10000000</span>
-                    <span class="t-id">2</span>
                 </div>
-            </div>
-            <div class="transaksi-list">
+            </a>
+            <a href="./edittransaksi.html" class="transaksi-list">
                 <div class="t-left">
                     <span class="t-name">Jual HP</span>
                     <span class="t-date">03-06-2023, 09:15</span>
                 </div>
                 <div class="t-center">
                     <div class="t-img">
-                        <img src="../src/assets/images/anton.webp" alt="profile">
+                        <img src="../src/assets/images/file.JPG" alt="profile">
                     </div>
-                    <span>Admin</span>
+                    <span>Hadhy Purwanto</span>
                 </div>
                 <div class="t-right">
                     <span class="t-amount in">+ 5000000</span>
-                    <span class="t-id">3</span>
+                    <span class="t-amount out">- 2000000</span>
                 </div>
-            </div>
+            </a>
         </div>
         </main>
 
         <footer>
             <span>Copyright © 2022 Vindhy Cell. All Rights Reserved</span>
         </footer>
+        <a href="./addtransaksi.html" class="add-mobile"><i class="fa fa-plus" aria-hidden="true"></i></a>
     </div>
     
     <!-- 👇 javascript code file 👇 -->

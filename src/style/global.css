@@ -45,6 +45,10 @@ body {
     padding-left: 20%;
 }
 
+.clear {
+    clear: both;
+}
+
 header {
     position: fixed;
     left: 0;
@@ -53,7 +57,7 @@ header {
     background: linear-gradient(0deg, hsla(186, 97%, 56%, 1) 0%, hsla(238, 100%, 24%, 1) 100%);
     width: 20%;
     transition: all .3s ease-in-out;
-    z-index: 2;
+    z-index: 3;
 }
 
 main {
@@ -71,7 +75,20 @@ footer {
     padding: 0 20px 25px;
     line-height: 21px;
     font-weight: 500;
-    z-index: 3;
+    z-index: 4;
+}
+
+.add-mobile {
+    position: fixed;
+    right: 35px;
+    bottom: 35px;
+    background: #1b67f1;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
 .heading {
@@ -87,9 +104,17 @@ footer {
 }.heading .tabs {
     display: flex;
     gap: 20px;
+    align-items: center;
 }.heading .tabs span {
     font-size: 12px;
     color: #999;
+}.heading .tabs span.active {
+    color: hsl(238deg 95.63% 48.38%);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: hsl(238deg 95.63% 48.38% / 10%);
 }.logo-mobile {
     height: 50px;
     overflow: hidden;
@@ -124,6 +149,12 @@ footer {
     color: #999;
     border-bottom: 1px solid #ececec;
     padding-bottom: 10px;
+}.transaksi-head .date {
+    width: 140px;
+}.transaksi-head .cat {
+    width: 100px;
+}.transaksi-head .bayar {
+    width: 75px;
 }.transaksi-detail .date {
     width: 140px;
     font-weight: 500;
@@ -491,6 +522,7 @@ footer {
     font-size: 14px;
 }.t-left span {
     display: block;
+    color: #222;
 }.t-name {
     font-weight: 500;
     margin-bottom: 5px;
@@ -505,11 +537,19 @@ footer {
     font-size: 14px;
     text-align: right;
     width: 12%;
+    gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }.t-right span {
     display: block;
 }.t-amount {
     font-weight: 600;
-    margin-bottom: 5px;
+    flex: 100%;
+    max-width: 100%;
+    -webkit-flex: 100%;
+    -mss-flex: 100%;
+    color: #222;
 }.t-id {
     font-size: 11px;
     color: #999;
@@ -528,6 +568,48 @@ footer {
 }.t-center span {
     font-size: 11px;
     font-weight: 500;
+    color: #333;
+}
+/* Add product page */
+.add-produk {
+    position: relative;
+    padding-left: 26%;
+}.add-img {
+    position: absolute;
+    left: 20px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    top: 10px;
+}.add-img img {
+    width: 100%;
+}.add-img span {
+    font-size: 14px;
+    font-weight: 500;
+}.add-desc label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}.add-desc input, .add-desc textarea, .add-desc select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: 'Poppins';
+    margin-bottom: 10px;
+    width: 100%;
+}.add-amount {
+    display: flex;
+    gap: 15px;
+}.add-amount .pembayaran {
+    flex: calc(50% - 7.5px);
+    max-width: calc(50% - 7.5px);
+    -webkit-flex: calc(50% - 7.5px);
+    -ms-flex: calc(50% - 7.5px);
+}#getValue {
+    float: right;
+}#prog {
+    padding: 8px 0;
 }
 @keyframes growProgressBar {
     0%, 33% { --pgPercentage: 0; }
@@ -621,7 +703,10 @@ footer {
 }
   /* Responsive */
 @media screen and (max-width: 1160px) {
-    .no-mobile {
+    .add-mobile {
+        display: flex;
+        z-index: 2;
+    }.no-mobile {
         display: none;
     }.outer-wrapper {
         padding-left: 0;
@@ -676,6 +761,26 @@ footer {
         border-color: transparent;
     }main {
         padding: 25px 25px 70px;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .profile-container {
+        padding-left: 20px;
+    }.profile-pict {
+        position: relative;
+        left: unset;
+        top: unset;
+        text-align: center;
+        margin: 0 auto 60px;
+    }.add-img {
+        position: relative;
+        left: unset;
+        top: unset;
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }.add-produk {
+        padding-left: unset;
     }
 }
 
@@ -741,7 +846,7 @@ footer {
 
 @media screen and (max-width: 600px) {
     .balance-grapic {
-        display: none;
+        /*display: none;*/
     }.t-left {
         width: 40%;
     }.t-right {
@@ -808,6 +913,14 @@ footer {
         display: none;
     }.project-progress {
         width: 20%;
+    }.profile-pict {
+        width: 200px;
+        height: 200px;
+    }.transaksi .heading h2 {
+        display: none;
+    }.heading .tabs {
+        width: 100%;
+        justify-content: space-between;
     }
 }
 

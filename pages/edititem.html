@@ -42,60 +42,44 @@
         <!-- 👇 your content here 👇 -->
         <main>
         <div class="heading no-mobile">
-            <h1>Product List</h1>
+            <h1>Add Product</h1>
             <div class="right">
-                <a href="./additems.html">Add Product</a>
-                <a href="http://">Logout</a>
+                <a href="./items.html">Kembali</a>
             </div>
         </div>
-        <div class="container product">
-            <div class="item-list bixbox">
-                <div class="img">
-                    <img src="../src/assets/images/Samsung-Galaxy-A01.jpg" alt="image">
+        <div class="add-container bixbox">
+            <div class="add-produk">
+                <div class="add-img">
+                    <img src="../src/assets/images/Samsung-Galaxy-A01.jpg" alt="upload">
+                    <span>Upload Image</span>
                 </div>
-                <div class="detail">
-                    <div class="name">Samsung Galaxy A01</div>
-                    <span><b>Brand</b> : <i>Samsung</i></span>
-                    <span><b>Type</b> : <i>A01</i></span>
-                    <span><b>Stock</b> : <i>2</i></span>
-                </div>
-                <span class="harga">Rp. 800.000</span>
-                <div class="action">
-                <span class="hapus">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </span>
-                <a href="./edititem.html" class="more">
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                </a>
-                </div>
-            </div>
-            <div class="item-list bixbox">
-                <div class="img">
-                    <img src="../src/assets/images/Samsung-Galaxy-A01.jpg" alt="image">
-                </div>
-                <div class="detail">
-                    <div class="name">Samsung Galaxy A01</div>
-                    <span><b>Brand</b> : <i>Samsung</i></span>
-                    <span><b>Type</b> : <i>A01</i></span>
-                    <span><b>Stock</b> : <i>2</i></span>
-                </div>
-                <span class="harga">Rp. 800.000</span>
-                <div class="action">
-                    <span class="hapus">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </span>
-                    <a href="./edititem.html" class="more">
-                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                <div class="add-desc">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Name" value="Samsung Galaxy A01">
+                    <label for="brand">Brand</label>
+                    <input type="text" name="brand" id="brand" placeholder="Brand" value="Samsung">
+                    <label for="type">Type</label>
+                    <input type="text" name="type" id="type" placeholder="Type" value="A01">
+                    <label for="stok">Stok</label>
+                    <input type="number" name="stok" id="stok" value="2" min="0">
+                    <label for="harga">Harga</label>
+                    <input type="number" name="harga" id="harga" value="800000" min="0">
+                    <a href="./items.html" class="delete-button">
+                        <span>Kembali</span>
                     </a>
+                    <button class="save-button">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                        Simpan 
+                    </button>
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         </main>
 
         <footer>
             <span>Copyright © 2022 Vindhy Cell. All Rights Reserved</span>
         </footer>
-        <a href="./additems.html" class="add-mobile"><i class="fa fa-plus" aria-hidden="true"></i></a>
     </div>
     
     <!-- 👇 javascript code file 👇 -->
