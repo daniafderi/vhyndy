@@ -563,6 +563,62 @@ footer {
     font-size: 11px;
     font-weight: 600;
   }
+  /* Profile pages */
+  .profile-container {
+    display: block;
+    padding-left: 30%;
+    position: relative;
+}.profile-pict {
+    position: absolute;
+    left: 30px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    top: 50px;
+    text-align: center;
+}.profile-pict img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}.profile-pict span {
+    font-weight: 500;
+    color: blue;
+    font-size: 14px;
+    cursor: pointer;
+}.profile-bio label {
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}.profile-bio input, .profile-bio textarea, .profile-bio select {
+    padding: 12px 16px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    font-family: 'Poppins';
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: block;
+    width: 100%;
+}.delete-button {
+    display: inline-flex;
+    align-items: center;
+}.delete-button svg {
+    margin-right: 5px;
+}.delete-button span {
+    color: #BE1E2D;
+    font-size: 11px;
+}.save-button {
+    float: right;
+    padding: 4px 12px;
+    border-radius: 3px;
+    border: 1px solid hsl(216deg 98.29% 42.17%);
+    background: hsl(216deg 98.29% 42.17%);
+    color: #fff;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
   /* Responsive */
 @media screen and (max-width: 1160px) {
     .no-mobile {
