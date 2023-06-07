@@ -71,6 +71,7 @@ footer {
     padding: 0 20px 25px;
     line-height: 21px;
     font-weight: 500;
+    z-index: 3;
 }
 
 .heading {
@@ -472,7 +473,7 @@ footer {
 .transaksi-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
 }.transaksi-list {
     flex: 100%;
     max-width: 100%;
@@ -586,6 +587,7 @@ footer {
         left: unset;
         width: 100%;
         padding: 10px 25px 25px;
+        z-index: 1;
     }header.show {
         left: 0;
     }.logo {
@@ -664,6 +666,22 @@ footer {
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .project-name strong {
+        font-size: 13.5px;
+    }.project-by {
+        width: 38%;
+    }.project-by span {
+        font-size: 12px;
+    }.project-by .alamat {
+        font-size: 10px;
+    }.project-progress {
+        width: 9%;
+    }.project-cost {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .balance-grapic {
         display: none;
@@ -676,6 +694,22 @@ footer {
         max-width: calc(50% - 7.5px);
         -webkit-flex: calc(50% - 7.5px);
         -ms-flex: calc(50% - 7.5px);
+    }.project-list {
+        padding: 15px 50px 15px 15px;
+    }.project-name {
+        width: 40%;
+    }.project-name strong {
+        font-size: 13.5px;
+    }.project-by {
+        width: 12%;
+    }.profile-detail {
+        display: none;
+    }.project-progress {
+        width: 12%;
+    }.more {
+        right: 15px;
+    }.hapus {
+        display: none;
     }
 }
 
@@ -711,6 +745,12 @@ footer {
         max-width: 100%;
         -webkit-flex: 100%;
         -ms-flex: 100%;
+    }.project-name {
+        width: 50%;
+    }.project-by {
+        display: none;
+    }.project-progress {
+        width: 20%;
     }
 }
 
