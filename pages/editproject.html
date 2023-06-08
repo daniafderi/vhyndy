@@ -42,7 +42,7 @@
         <!-- 👇 your content here 👇 -->
         <main>
         <div class="heading no-mobile">
-            <h1>Add Project</h1>
+            <h1>Edit Project</h1>
             <div class="right">
                 <a href="./project.html">Kembali</a>
             </div>
@@ -56,6 +56,12 @@
                 <div class="add-desc">
                     <label for="name">Nama project</label>
                     <input type="text" name="name" id="name" placeholder="Name" value="Reparasi HP Redmi 10">
+                    <label for="customer">Nama Customer</label>
+                    <input type="text" name="customer" id="customer" placeholder="Customer name" value="Sumanto">
+                    <label for="no_hp">No. HP</label>
+                    <input type="number" name="no_hp" id="no_hp" placeholder="08xxxxxxxxxx" value="081989421432">
+                    <label for="device">Nama Device</label>
+                    <input type="text" name="device" id="device" value="Redmi">
                     <div class="add-amount">
                         <div class="pembayaran">
                             <label for="pembayaran">Pembayaran</label>
@@ -70,8 +76,11 @@
                     <input type="range" name="prog" id="prog" oninput="getValue()" value="68" max="100" min="0">
                     <label for="desc">Deskripsi</label>
                     <textarea name="desc" id="desc" placeholder="Description">ini isi deskripsi</textarea>
+                    <label for="id_code">ID Number</label>
+                    <input type="text" name="id_code" id="id_code" value="002026001">
                     <a href="./project.html" class="delete-button">
                         <span>Kembali</span>
+                        <span>Hapus</span>
                     </a>
                     <button class="save-button">
                         <i class="fa fa-pencil-square" aria-hidden="true"></i>

@@ -686,6 +686,7 @@ footer {
 }.delete-button {
     display: inline-flex;
     align-items: center;
+    gap: 15px;
 }.delete-button svg {
     margin-right: 5px;
 }.delete-button span {
