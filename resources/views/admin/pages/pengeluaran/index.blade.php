@@ -91,11 +91,14 @@
 
                         
                         <td class="px-6 py-4">
-                            <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST">
-                                <a href="{{ route('pengeluaran.edit', $pengeluaran->id) }}">Edit</a>
-                                <button type="submit">Delete</button>
+                            <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengeluaran ini?');">
+                                @csrf
+                                @method('DELETE') <!-- Menyatakan bahwa ini adalah permintaan DELETE -->
+                                <a href="{{ route('pengeluaran.edit', $pengeluaran->id) }}" class="text-blue-500 hover:underline">Edit</a>
+                                <button type="submit" class="text-red-500 hover:underline">Delete</button>
                             </form>
                         </td>
+
 
                     </tr> @endforeach </tbody>
             </table>

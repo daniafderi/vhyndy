@@ -88,8 +88,12 @@ class PengeluaranController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        $pengeluaran->delete();
+    
+        return redirect()->route('pengeluaran.index')->with('success', 'Pengeluaran berhasil dihapus.');
     }
+    
 }
