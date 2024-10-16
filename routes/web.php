@@ -41,6 +41,7 @@ Route::prefix('admin')->middleware('auth')->group(function()  {
     Route::get('/search/sparepart', [AdminController::class, 'searchSparepart'])->name('search.sparepart');
     Route::resource('history', HistoryController::class);
     Route::resource('/pengeluaran', PengeluaranController::class);
+    
 });
 
 Route::middleware('auth')->group(function () {

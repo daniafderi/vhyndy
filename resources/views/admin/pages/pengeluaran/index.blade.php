@@ -30,10 +30,15 @@
             <span>0.00</span>
         </div>
     </div>
-    <div class="mb-4 overflow-hidden box-border">
-        <a class="py-2 px-4 rounded bg-sky-600 text-white box-border inline-block text-sm" href="http://">Tambah
-            pengeluaran</a>
-    </div>
+
+
+        <a class="py-2 px-4 rounded bg-sky-600 text-white box-border inline-block text-sm" href="{{ route('pengeluaran.create') }}">
+        Tambah pengeluaran
+    </a>
+
+
+
+
     <div class="bg-white shadow-md rounded p-4">
         <div class="flex items-center justify-between mb-3">
             <div class="text-sm inline-flex gap-1.5">

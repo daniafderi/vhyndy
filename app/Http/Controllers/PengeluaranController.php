@@ -21,7 +21,7 @@ class PengeluaranController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.pengeluaran.create');
     }
 
     /**
@@ -29,7 +29,24 @@ class PengeluaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input
+        $validatedData = $request->validate([
+            'tanggal' => 'required|date',
+            'nama' => 'required|string|max:255',
+            'jumlah' => 'required|numeric|min:0',
+            'deskripsi' => 'required|string',
+        ]);
+
+        // Simpan data ke dalam database
+        Pengeluaran::create([
+            'tanggal' => $validatedData['tanggal'],
+            'nama' => $validatedData['nama'],
+            'jumlah' => $validatedData['jumlah'],
+            'deskripsi' => $validatedData['deskripsi'],
+        ]);
+
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('pengeluaran.index')->with('success', 'Pengeluaran berhasil ditambahkan!');
     }
 
     /**

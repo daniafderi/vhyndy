@@ -12,4 +12,12 @@ class Pengeluaran extends Model
     protected $table = 'pengeluarans';
     protected $guarded = ['id'];
     public $timestamps = true;
+
+    protected $fillable = [
+        'tanggal',
+        'nama',
+        'jumlah',
+        'deskripsi',
+    ];
 }
+
