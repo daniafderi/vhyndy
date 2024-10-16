@@ -7,6 +7,8 @@
 @section('content')
 <div class="p-5">
     <div class="flex gap-2.5 items-center mb-4">
+
+    
         <div class="bg-white shadow-md rounded p-4 relative pl-[75px]">
             <div class="absolute left-3 p-3 bg-sky-600 rounded"><svg class="w-6 h-6 text-gray-800 dark:text-white "
                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none"
@@ -16,7 +18,9 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Hari ini</span>
-            <span>0.00</span>
+            <span>{{ 'Rp ' . number_format($totalHariIni, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran hari ini -->
+
+
         </div>
         <div class="bg-white shadow-md rounded p-4 relative pl-[75px]">
             <div class="absolute left-3 p-3 bg-sky-600 rounded"><svg class="w-6 h-6 text-gray-800 dark:text-white "
@@ -27,7 +31,8 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <span>0.00</span>
+            <span>{{ 'Rp ' . number_format($totalBulanIni, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran bulan ini -->
+
         </div>
     </div>
 
@@ -83,12 +88,15 @@
                         <td class="px-6 py-4">
                             {{ $pengeluaran->deskripsi }}
                         </td>
+
+                        
                         <td class="px-6 py-4">
                             <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST">
                                 <a href="{{ route('pengeluaran.edit', $pengeluaran->id) }}">Edit</a>
                                 <button type="submit">Delete</button>
                             </form>
                         </td>
+
                     </tr> @endforeach </tbody>
             </table>
         </div>

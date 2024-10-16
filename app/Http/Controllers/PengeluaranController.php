@@ -12,8 +12,20 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
+
         $datas = Pengeluaran::all();
-        return view('admin.pages.pengeluaran.index', compact(['datas']));
+    
+        // Hitung total pengeluaran hari ini
+        $totalHariIni = Pengeluaran::whereDate('tanggal', today())->sum('jumlah');
+        
+        // Hitung total pengeluaran bulan ini
+        $totalBulanIni = Pengeluaran::whereMonth('tanggal', date('m'))
+                                    ->whereYear('tanggal', date('Y'))
+                                    ->sum('jumlah');
+
+        $datas = Pengeluaran::all();
+            // Kirim variabel ke view
+        return view('admin.pages.pengeluaran.index', compact('datas', 'totalHariIni', 'totalBulanIni'));
     }
 
     /**

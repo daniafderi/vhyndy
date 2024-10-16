@@ -37,7 +37,7 @@
             <input type="text" name="nama" class="border border-solid border-slate-200 rounded w-full" required>
         </div>
         <div class="mb-4">
-            <label for="jumlah" class="block mb-1">Jumlah</label>
+            <label for="jumlah" class="block mb-1">Jumlah (Rp)</label>
             <input type="number" name="jumlah" class="border border-solid border-slate-200 rounded w-full" required>
         </div>
         <div class="mb-4">
