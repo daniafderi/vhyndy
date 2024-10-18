@@ -72,10 +72,22 @@
                     <label for="price">Harga total</label>
                     <input type="number" name="harga_total" id="price" min="0" value="{{ $project->harga_total }}">
                 </div>
+
                 <div class="form-input">
                     <label for="code">Code Project</label>
                     <input type="text" name="code_project" id="code" placeholder="Enter name customer" value="{{ $project->code_project }}">
                 </div>
+
+                <div class="form-input">
+                    <label for="code">Tanggal Servis</label>
+                    <input type="date" name="tanggal_service" id="code" placeholder="Enter name customer" value="{{ $project->tanggal_service }}">
+                </div>
+
+                <div class="form-input">
+                    <label for="code">Tanggal Pembayaran</label>
+                    <input type="hidden" name="tanggal_pembayaran" id="code" placeholder="Enter name customer" value="{{ $project->tanggal_pembayaran }}">
+                </div>
+
                 <div class="form-action">
                     <a href="{{ route('project.index') }}">Cancel</a>
                     <button type="submit">Save</button>

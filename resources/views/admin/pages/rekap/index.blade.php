@@ -48,7 +48,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran bulan ini -->
+            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
 
         </div>
         <div class="bg-white shadow-md rounded p-4 relative pl-[75px] flex-[calc(25%_-_((10px_*_4)_/_3))]">
@@ -60,7 +60,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Hari ini</span>
-            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran hari ini -->
+            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran hari ini -->
 
 
         </div>
@@ -73,7 +73,22 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran bulan ini -->
+            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
+
+        </div>
+
+
+        
+        <div class="bg-white shadow-md rounded p-4 relative pl-[75px] flex-[calc(25%_-_((10px_*_4)_/_3))]">
+            <div class="absolute left-3 p-3 bg-sky-600 rounded"><svg class="w-6 h-6 text-gray-800 dark:text-white "
+                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none"
+                    viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 17.345a4.76 4.76 0 0 0 2.558 1.618c2.274.589 4.512-.446 4.999-2.31.487-1.866-1.273-3.9-3.546-4.49-2.273-.59-4.034-2.623-3.547-4.488.486-1.865 2.724-2.899 4.998-2.31.982.236 1.87.793 2.538 1.592m-3.879 12.171V21m0-18v2.2" />
+                </svg>
+            </div>
+            <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
+            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
 
         </div>
         <div class="bg-white shadow-md rounded p-4 relative pl-[75px] flex-[calc(25%_-_((10px_*_4)_/_3))]">
@@ -85,19 +100,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran bulan ini -->
-
-        </div>
-        <div class="bg-white shadow-md rounded p-4 relative pl-[75px] flex-[calc(25%_-_((10px_*_4)_/_3))]">
-            <div class="absolute left-3 p-3 bg-sky-600 rounded"><svg class="w-6 h-6 text-gray-800 dark:text-white "
-                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 17.345a4.76 4.76 0 0 0 2.558 1.618c2.274.589 4.512-.446 4.999-2.31.487-1.866-1.273-3.9-3.546-4.49-2.273-.59-4.034-2.623-3.547-4.488.486-1.865 2.724-2.899 4.998-2.31.982.236 1.87.793 2.538 1.592m-3.879 12.171V21m0-18v2.2" />
-                </svg>
-            </div>
-            <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran bulan ini -->
+            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
 
         </div>
     </div>

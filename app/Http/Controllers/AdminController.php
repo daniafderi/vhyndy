@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon; // Pastikan di bagian atas file
 use App\Models\Category;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
@@ -51,34 +51,38 @@ class AdminController extends Controller
     }
 
     public function pendapatan(Request $request) {
-        if ($request->input()) {
-            $start_date = $request->start_date;
-            $end_date = $request->end_date;
-        } else {
-            $start_date = date('Y-m-d');
-            $end_date = date('Y-m-d');
-        }
+        // Mendapatkan tanggal pertama dan terakhir bulan ini
+        $startOfMonth = Carbon::now()->startOfMonth();
+        $endOfMonth = Carbon::now()->endOfMonth();
 
-        $totalServiceBulanIni = Project::whereMonth('tanggal_service', date('m'))->whereYear('tanggal_service', date('Y'))->count('id');
+            // Mengambil total pendapatan servis bulan ini hanya untuk yang sudah dibayar
 
-        $totalPengeluaranBulanIni = Pengeluaran::whereMonth('tanggal', date('m'))->whereYear('tanggal', date('Y'))->sum('jumlah');
+        $totalPendapatanService = Project::whereBetween('tanggal_pembayaran', [$startOfMonth, $endOfMonth])
+        ->where('status_id', 4) // Hanya proyek yang sudah dibayar
+        ->sum('harga_total');
 
-        //dd($totalService);
-    
+        // Mengambil total pengeluaran bulan ini
+        $totalPengeluaranBulanIni = Pengeluaran::whereBetween('tanggal', [$startOfMonth, $endOfMonth])->sum('jumlah');
+
         // Mengambil daftar semua proyek bersama dengan statusnya
         $projects = Project::orderBy('tanggal_service', 'desc')->paginate(10);
         $pengeluarans = Pengeluaran::orderBy('tanggal', 'desc')->paginate(10);
-    
-        // Menghitung total pendapatan hanya dari proyek yang memiliki status "sudah dibayar"
-        $totalPendapatanService = Project::where('status_id', 4)
-                                   ->whereMonth('tanggal_service', date('m'))
-                                   ->whereYear('created_at', date('Y'))
-                                   ->sum('harga_total');
 
-        
-    
+        // Menghitung total servis bulan ini
+        $totalServiceBulanIni = Project::whereMonth('tanggal_service', date('m'))
+                                        ->whereYear('tanggal_service', date('Y'))
+                                        ->count('id');
+
         // Mengembalikan tampilan dengan variabel yang diperlukan
-        return view('admin.pages.rekap.index', compact('projects', 'start_date', 'end_date', 'totalPendapatanService', 'totalServiceBulanIni', 'pengeluarans', 'totalPengeluaranBulanIni'));
+        return view('admin.pages.rekap.index', [
+            'projects' => $projects,
+            'totalPendapatanService' => $totalPendapatanService,
+            'totalPengeluaranBulanIni' => $totalPengeluaranBulanIni,
+            'totalServiceBulanIni' => $totalServiceBulanIni,
+            'pengeluarans' => $pengeluarans,
+            'start_date' => $startOfMonth,
+            'end_date' => $endOfMonth
+        ]);
     }
     
     

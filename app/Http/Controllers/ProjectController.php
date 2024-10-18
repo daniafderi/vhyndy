@@ -111,6 +111,15 @@ class ProjectController extends Controller
             ]);
         }
 
+        // Update tanggal_pembayaran jika status_id adalah '4' (sudah dibayar)
+        if ($request->status_id == 4) {
+            $validatedData['tanggal_pembayaran'] = now(); // Mengisi tanggal_pembayaran dengan tanggal sekarang
+        } else {
+            // Jika status_id bukan 4, kita bisa mengosongkan tanggal_pembayaran (opsional)
+            $validatedData['tanggal_pembayaran'] = null; // Atau tetap tidak diubah
+        }
+
+
         $project->update($validatedData);
 
         History::create([
