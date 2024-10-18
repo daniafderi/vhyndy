@@ -21,6 +21,7 @@ return new class extends Migration
             $table->bigInteger('harga_total');
             $table->string('customer_name');
             $table->string('code_project');
+            $table->date('tanggal_service');
             $table->timestamps();
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->foreign('category_id')->references('id')->on('categories');

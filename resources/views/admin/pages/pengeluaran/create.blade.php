@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="p-5">
+    <div class="bg-white shadow-md rounded p-4">
     <h2 class="text-lg mb-4">Tambah Pengeluaran</h2>
 
     <!-- Menampilkan pesan sukses jika ada -->
@@ -30,21 +31,22 @@
         @csrf
         <div class="mb-4">
             <label for="tanggal" class="block mb-1">Tanggal</label>
-            <input type="date" name="tanggal" class="border border-solid border-slate-200 rounded w-full" required>
+            <input type="date" name="tanggal" class="mt-1 p-2 border border-gray-300 rounded w-full" required>
         </div>
         <div class="mb-4">
             <label for="nama" class="block mb-1">Nama</label>
-            <input type="text" name="nama" class="border border-solid border-slate-200 rounded w-full" required>
+            <input type="text" name="nama" class="mt-1 p-2 border border-gray-300 rounded w-full" required>
         </div>
         <div class="mb-4">
             <label for="jumlah" class="block mb-1">Jumlah (Rp)</label>
-            <input type="number" name="jumlah" class="border border-solid border-slate-200 rounded w-full" required>
+            <input type="number" name="jumlah" class="mt-1 p-2 border border-gray-300 rounded w-full" required>
         </div>
         <div class="mb-4">
             <label for="deskripsi" class="block mb-1">Catatan</label>
-            <textarea name="deskripsi" class="border border-solid border-slate-200 rounded w-full" required></textarea>
+            <textarea name="deskripsi" class="mt-1 p-2 border border-gray-300 rounded w-full" required></textarea>
         </div>
         <button type="submit" class="bg-sky-600 text-white px-4 py-2 rounded">Simpan</button>
     </form>
+</div>
 </div>
 @endsection

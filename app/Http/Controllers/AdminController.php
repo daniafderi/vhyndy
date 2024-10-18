@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -57,22 +58,27 @@ class AdminController extends Controller
             $start_date = date('Y-m-d');
             $end_date = date('Y-m-d');
         }
+
+        $totalServiceBulanIni = Project::whereMonth('tanggal_service', date('m'))->whereYear('tanggal_service', date('Y'))->count('id');
+
+        $totalPengeluaranBulanIni = Pengeluaran::whereMonth('tanggal', date('m'))->whereYear('tanggal', date('Y'))->sum('jumlah');
+
+        //dd($totalService);
     
         // Mengambil daftar semua proyek bersama dengan statusnya
-        $projects = Project::with('status')
-                            ->where('status_id', 4)
-                            ->whereDate('created_at', '>=', $start_date)
-                            ->whereDate('created_at', '<=', $end_date)
-                            ->get();
+        $projects = Project::orderBy('tanggal_service', 'desc')->paginate(10);
+        $pengeluarans = Pengeluaran::orderBy('tanggal', 'desc')->paginate(10);
     
         // Menghitung total pendapatan hanya dari proyek yang memiliki status "sudah dibayar"
-        $totalPendapatan = Project::where('status_id', 4)
-                                   ->whereDate('created_at', '>=', $start_date)
-                                   ->whereDate('created_at', '<=', $end_date)
+        $totalPendapatanService = Project::where('status_id', 4)
+                                   ->whereMonth('tanggal_service', date('m'))
+                                   ->whereYear('created_at', date('Y'))
                                    ->sum('harga_total');
+
+        
     
         // Mengembalikan tampilan dengan variabel yang diperlukan
-        return view('admin.pages.rekap.index', compact('projects', 'start_date', 'end_date', 'totalPendapatan'));
+        return view('admin.pages.rekap.index', compact('projects', 'start_date', 'end_date', 'totalPendapatanService', 'totalServiceBulanIni', 'pengeluarans', 'totalPengeluaranBulanIni'));
     }
     
     

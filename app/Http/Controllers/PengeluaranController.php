@@ -12,8 +12,6 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
-
-        $datas = Pengeluaran::all();
     
         // Hitung total pengeluaran hari ini
         $totalHariIni = Pengeluaran::whereDate('tanggal', today())->sum('jumlah');
@@ -23,9 +21,13 @@ class PengeluaranController extends Controller
                                     ->whereYear('tanggal', date('Y'))
                                     ->sum('jumlah');
 
-        $datas = Pengeluaran::all();
+        $totalTahunIni = Pengeluaran::whereYear('tanggal', date('Y'))->sum('jumlah');
+
+        $datas = Pengeluaran::orderBy('tanggal', 'desc')->paginate(10);
+
+        //dd($datas->count());
             // Kirim variabel ke view
-        return view('admin.pages.pengeluaran.index', compact('datas', 'totalHariIni', 'totalBulanIni'));
+        return view('admin.pages.pengeluaran.index', compact('datas', 'totalHariIni', 'totalBulanIni', 'totalTahunIni'));
     }
 
     /**
@@ -74,7 +76,9 @@ class PengeluaranController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pengeluaran = Pengeluaran::find($id);
+
+        return view('admin.pages.pengeluaran.edit', compact('pengeluaran'));
     }
 
     /**
@@ -82,7 +86,18 @@ class PengeluaranController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Pengeluaran::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'tanggal' => 'required|date',
+            'nama' => 'required|string|max:255',
+            'jumlah' => 'required|numeric|min:0',
+            'deskripsi' => 'required|string',
+        ]);
+
+        $data->update($validatedData);
+
+        return redirect()->route('pengeluaran.index')->with('success', 'Data pengeluaran berhasil diperbarui!');
     }
 
     /**

@@ -44,7 +44,8 @@ class ProjectController extends Controller
             "category_id" => "required",
             "harga_total" => "required",
             "customer_name" => "required",
-            "code_project" => "required"
+            "code_project" => "required",
+            "tanggal_service" => "required"
         ]);
 
         History::create([

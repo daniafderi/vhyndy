@@ -29,6 +29,7 @@ class ProjectFactory extends Factory
             'harga_total' => fake()->randomNumber(7),
             'customer_name' => fake()->name(),
             'code_project' => Str::random(5),
+            'tanggal_service' => fake()->date(),
             'created_at' => fake()->dateTime()
         ];
     }

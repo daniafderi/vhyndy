@@ -28,14 +28,14 @@
                 @can('isSuper')
                     <li class="{{ Request::routeIs('users.*') ? 'active' : '' }}"><a href="{{ route('users.index') }}"><i
                                 class="fa fa-users" aria-hidden="true"></i><span>Users</span></a></li>
+                    <li class="{{ Request::routeIs('pengeluaran.*') ? 'active' : '' }}">
+                        <a href="{{ route('pengeluaran.index') }}"><i class="fa fa-clipboard" aria-hidden="true"></i>  <span>Pengeluaran</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::routeIs('pendapatan') ? 'active' : '' }}"><a
                             href="{{ route('pendapatan') }}"><i class="fa fa-money"
-                                aria-hidden="true"></i><span>Pendapatan</span></a></li>
+                                aria-hidden="true"></i><span>Laporan</span></a></li>
                 @endcan
-                <li class="{{ Request::routeIs('pengeluaran.*') ? 'active' : '' }}">
-                    <a href="{{ route('pengeluaran.index') }}"><i class="fa fa-clipboard" aria-hidden="true"></i>  <span>Pengeluaran</span>
-                      </a>
-                </li>
                 <li class="{{ Request::routeIs('profile.*') ? 'active' : '' }}"><a
                         href="{{ route('profile.edit') }}"><i class="fa fa-user-circle-o"
                             aria-hidden="true"></i><span>Profile</span></a></li>
