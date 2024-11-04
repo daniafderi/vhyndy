@@ -11,5 +11,6 @@
     @include('admin.layouts.footer')
     </div>
     @include('admin.layouts.footer_script')
+    <script src="{{ asset('assets') }}/js/jumlahHarga.js"></script>
 </body>
 </html>

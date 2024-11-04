@@ -36,7 +36,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <span>{{ 'Rp ' . number_format($totalPengeluaranBulanIni, 2, ',', '.') }}</span> <!-- Menampilkan total pengeluaran bulan ini -->
+            <span>{{ 'Rp ' . number_format($totalPengeluaranBulanIni, 2, ',', '.') }}</span> 
 
         </div>
         <div class="bg-white shadow-md rounded p-4 relative pl-[75px] flex-[calc(25%_-_((10px_*_4)_/_3))]">
@@ -48,7 +48,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
+            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> 
 
         </div>
         <div class="bg-white shadow-md rounded p-4 relative pl-[75px] flex-[calc(25%_-_((10px_*_4)_/_3))]">
@@ -60,7 +60,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Hari ini</span>
-            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran hari ini -->
+            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span>
 
 
         </div>
@@ -73,7 +73,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
+            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> 
 
         </div>
 
@@ -88,7 +88,7 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
+            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> 
 
         </div>
         <div class="bg-white shadow-md rounded p-4 relative pl-[75px] flex-[calc(25%_-_((10px_*_4)_/_3))]">
@@ -100,14 +100,14 @@
                 </svg>
             </div>
             <span class="block mb-1.5 text-[13px]">Pengeluaran Bulan ini</span>
-            <!-- <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span> Menampilkan total pengeluaran bulan ini -->
+            <span>{{ 'Rp ' . number_format($totalPendapatanService, 2, ',', '.') }}</span>
 
         </div>
     </div>
 
 
     <a class="py-2 px-4 rounded bg-sky-600 text-white box-border inline-block text-sm" href="window.print()">
-        Tambah pengeluaran
+        Download Laporan
     </a>
 
 
@@ -150,16 +150,16 @@
                     @if ($projects->count() > 0)
                     @foreach ($projects as $project) <tr class="bg-white dark:border-gray-700 odd:bg-slate-100">
                         <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap">
-                            {{ $project->tanggal_service }}
+                            {{ $project->tanggal_servis }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $project->code_project }}
+                            {{ $project->invoice }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $project->customer_name }}
+                            {{ $project->nama_pelanggan }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $project->name }}
+                            {{ $project->judul_servis }}
                         </td>
                         <td class="px-6 py-4">
                             {{ 'Rp. ' . number_format($project->harga_total, 2, ',', '.' )  }}

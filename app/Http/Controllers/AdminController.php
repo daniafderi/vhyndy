@@ -65,12 +65,12 @@ class AdminController extends Controller
         $totalPengeluaranBulanIni = Pengeluaran::whereBetween('tanggal', [$startOfMonth, $endOfMonth])->sum('jumlah');
 
         // Mengambil daftar semua proyek bersama dengan statusnya
-        $projects = Project::orderBy('tanggal_service', 'desc')->paginate(10);
+        $projects = Project::orderBy('tanggal_servis', 'desc')->paginate(10);
         $pengeluarans = Pengeluaran::orderBy('tanggal', 'desc')->paginate(10);
 
         // Menghitung total servis bulan ini
-        $totalServiceBulanIni = Project::whereMonth('tanggal_service', date('m'))
-                                        ->whereYear('tanggal_service', date('Y'))
+        $totalServiceBulanIni = Project::whereMonth('tanggal_servis', date('m'))
+                                        ->whereYear('tanggal_servis', date('Y'))
                                         ->count('id');
 
         // Mengembalikan tampilan dengan variabel yang diperlukan

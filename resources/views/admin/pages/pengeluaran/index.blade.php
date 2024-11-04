@@ -48,10 +48,22 @@
         </div>
     </div>
 
+<div class="flex gap-4 items-center justify-between">
+    <a class="py-2 px-4 shadow-md rounded bg-sky-600 text-white box-border inline-block text-sm" href="{{ route('pengeluaran.create') }}">
+    Tambah pengeluaran
+</a>
+<div class="flex items-center gap-3">
+    <a class="py-2 px-4 shadow-md bg-sky-600 text-white inline-flex rounded box-border text-sm" href="">Default</a>
+    <select class="py-2 px-4 bg-amber-500 rounded shadow-md text-white box-border text-sm" name="filter_pengeluaran" id="filter_pengeluaran">
+        <option value="" selected hidden>Filter data</option>
+        <option value="">Bulan Ini</option>
+        <option value="">Bulan sebelumnya</option>
+        <option value="">Pilih rentang tanggal</option>
+        <option value="">Pilih tanggal</option>
+    </select>
+</div>
 
-        <a class="py-2 px-4 rounded bg-sky-600 text-white box-border inline-block text-sm" href="{{ route('pengeluaran.create') }}">
-        Tambah pengeluaran
-    </a>
+</div>
 
 
 

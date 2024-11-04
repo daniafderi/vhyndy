@@ -801,3 +801,9 @@ aside {
         max-width: 15%;
     }.
 }
+
+.wajib::after {
+    content: "*";
+    margin-left: 0.25rem;
+    color: #d63939;
+}

@@ -20,7 +20,7 @@ class ProjectController extends Controller
 {
     public function index() {
 
-        $projects = Project::orderBy('id', 'desc')->get();
+        $projects = Project::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.pages.project.index', ['projects' => $projects]);
     }
@@ -30,22 +30,38 @@ class ProjectController extends Controller
         $statuses = Status::all();
         $categories = Category::all();
         $spareparts = Sparepart::all();
+        $invoice = "INV-".date('YmdHis');
+        $now = now()->format('Y-m-d');
 
-        return view('admin.pages.project.create', compact(['statuses', 'categories', 'spareparts']));
+        return view('admin.pages.project.create', compact(['statuses', 'categories', 'spareparts', 'invoice', 'now']));
     }
 
     public function store(Request $request) {
 
+        //dd($request);
+
         $validatedData = $request->validate([
-            "name" => "required",
-            "deskripsi" => "required",
-            "image" => "required|image|file",
+            "invoice" => "required|string",
+            "judul_servis" => "required|string|max:50",
+            "tanggal_servis" => "required|date",
+            "nama_pelanggan" => "required|string",
             "status_id" => "required",
             "category_id" => "required",
+            "merek_perangkat" => "required|string",
+            "type_perangkat" => "required|string",
+            "kelengkapan" => "required|string",
+            "kerusakan" => "required|string",
+            "penggunaan_sparepart" => "required|string",
+            "harga_sparepart" => "required",
+            "harga_jual_sparepart" => "required",
+            "harga_jasa" => "required",
             "harga_total" => "required",
-            "customer_name" => "required",
-            "code_project" => "required",
-            "tanggal_service" => "required"
+            "jumlah_sudah_dibayar" => "required",
+            "jumlah_belum_dibayar" => "required",
+            "metode_pembayaran" => "required",
+            "alamat_pelanggan" => "string|nullable",
+            "kontak_pelanggan" => "string|nullable",
+            "sparepart_digunakan" => "string|nullable"
         ]);
 
         History::create([
@@ -53,7 +69,9 @@ class ProjectController extends Controller
             'aktifitas' => Auth::user()->name.' menambahkan data project pada '.now()
         ]);
 
-        $validatedData["image"] = $request->file('image')->store('project-image');
+        if($request->foto_perangkat) {
+            $validatedData["foto_perangkat"] = $request->file('foto_perangkat')->store('project-image');
+        }
         
         Project::create($validatedData);
 
@@ -62,11 +80,9 @@ class ProjectController extends Controller
         
             $pssp = Project::find($newProjectId);
             $pssp->sparepart()->sync($request->sparepart);
-
-            return redirect()->route('project.index')->with('success', 'Successfully added a new project');
-        } else {
-            return redirect()->route('project.index')->with('success', 'Successfully added a new project');
         }
+        return redirect()->route('project.index')->with('success', 'Berhasil menambahkan data');
+        
 
         
     }
@@ -84,32 +100,36 @@ class ProjectController extends Controller
     public function update(Request $request, $id) {
         $project = Project::find($id);
 
-        if($request->file('image')) {
-            $validatedData = $request->validate([
-                "name" => "required",
-                "deskripsi" => "required",
-                "status_id" => "required",
-                "category_id" => "required",
-                "image" => "required|image|file",
-                "harga_total" => "required",
-                "customer_name" => "required",
-                "code_project" => "required"
-            ]);
+        $validatedData = $request->validate([
+            "invoice" => "required|string",
+            "judul_servis" => "required|string|max:50",
+            "tanggal_servis" => "required|date",
+            "nama_pelanggan" => "required|string",
+            "status_id" => "required",
+            "category_id" => "required",
+            "merek_perangkat" => "required|string",
+            "type_perangkat" => "required|string",
+            "kelengkapan" => "required|string",
+            "kerusakan" => "required|string",
+            "penggunaan_sparepart" => "required|string",
+            "harga_sparepart" => "required",
+            "harga_jual_sparepart" => "required",
+            "harga_jasa" => "required",
+            "harga_total" => "required",
+            "jumlah_sudah_dibayar" => "required",
+            "jumlah_belum_dibayar" => "required",
+            "metode_pembayaran" => "required",
+            "alamat_pelanggan" => "string|nullable",
+            "kontak_pelanggan" => "string|nullable",
+            "sparepart_digunakan" => "string|nullable"
+        ]);
+
+        if($request->file('foto_perangkat')) {
             if($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validatedData["image"] = $request->file('image')->store('project-image');
-        } else {
-            $validatedData = $request->validate([
-                "name" => "required",
-                "deskripsi" => "required",
-                "status_id" => "required",
-                "category_id" => "required",
-                "harga_total" => "required",
-                "customer_name" => "required",
-                "code_project" => "required"
-            ]);
-        }
+            $validatedData["foto_perangkat"] = $request->file('foto_perangkat')->store('project-image');
+        } 
 
         // Update tanggal_pembayaran jika status_id adalah '4' (sudah dibayar)
         if ($request->status_id == 4) {
@@ -129,11 +149,8 @@ class ProjectController extends Controller
 
         if($request->sparepart) {
             $project->sparepart()->sync($request->sparepart);
-
-            return redirect()->route('project.index')->with('success', 'Successfully updated project');
-        } else {
-            return redirect()->route('project.index')->with('success', 'Successfully updated project');
         }
+        return redirect()->route('project.index')->with('success', 'Berhasil memperbarui data');
     }
 
     public function destroy($id) {
